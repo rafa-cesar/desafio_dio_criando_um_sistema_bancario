@@ -1,0 +1,24 @@
+solicitar_deposito = '1'
+solicitar_saque = '2'
+solicitar_extrato = '3'
+solicitar_sair = '4'
+saldo = 5000.00
+operacao = '0'
+dici_operacao = {}
+operacao = input(f'bem vindo, digite o numero referente a sua operação: \n [1]Deposito \n [2]Saque \n [3]Extrato \n [4] Sair \n Digite sua opção: ')
+while operacao is not solicitar_sair:
+    if operacao == solicitar_deposito:
+        deposito = int (input('Tudo bem, mas quanto você gostaria de depositar: R$ '))
+        saldo = saldo + deposito
+        dici_operacao['Deposito'] = saldo
+        print(f'deposito realizado com sucesso, seu no saldo é: R$ {saldo},00')
+    elif operacao == solicitar_saque:
+        saque = int (input('entendi, mas de quanto você precisa? \n Digite aqui: R$'))
+        if saque > saldo: print('não será possível sacar o dinheiro por falta de saldo')
+        else: 
+            saldo  = saldo - saque
+            dici_operacao['Saque'] = saldo
+            print(f'saque realizado com sucesso seu novo saldo é R$: {saldo}.00')
+    elif operacao == solicitar_extrato:
+        print(dici_operacao)
+    operacao = input('psso te ajudar em mais al guma coisa? escolha uma opção:  \n [1]Deposito \n [2]Saque \n [3]Extrato \n [4] Sair \n Digite sua opção: ')
